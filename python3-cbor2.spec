@@ -25,6 +25,7 @@ BuildRequires:	python3-pytest-cov
 BuildRequires:	rpm-build >= 4.6
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.714
+BuildRequires:	sed >= 4.0
 %if %{with doc}
 BuildRequires:	python3-packaging
 BuildRequires:	python3-sphinx_autodoc_typehints >= 1.2.0
@@ -61,6 +62,11 @@ Dokumentacja API modułu Pythona cbor2.
 
 %prep
 %setup -q -n cbor2-%{version}
+
+%ifarch x32
+# different exception raised
+%{__sed} -i -e 's/\(cause_exc_class =\) OverflowError/\1 ValueError/' tests/test_decoder.py
+%endif
 
 %build
 %py3_build

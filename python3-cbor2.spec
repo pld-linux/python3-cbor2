@@ -7,7 +7,7 @@ Summary:	CBOR (de)serializer with extensive tag support
 Summary(pl.UTF-8):	(De)serializer CBOR z obszerną obsługą znaczników
 Name:		python3-cbor2
 Version:	5.6.3
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries/Python
 #Source0Download: https://pypi.org/simple/cbor2/
